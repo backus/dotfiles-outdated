@@ -1,0 +1,106 @@
+autoload -U zmv
+
+# ENV variables
+alias ae2='subl2 ~/.aliases'
+alias ar2='source ~/.aliases'
+alias code="cd $code/; clear;"
+alias dls='cd ~/Downloads;clear'
+alias desktop='cd ~/Desktop;show;clear'
+alias la='ls -laG';
+alias l='ls -l1G';
+alias lr='ls -t1';
+alias mmv='noglob zmv -W'
+
+source ~/.git-prompt.sh
+
+alias st="git status ."
+alias ..="cd .."
+alias ...="cd ../.."
+alias be="bundle exec"
+
+# This should eventually be organized... for now I'm just going to organize from now on:
+
+# Unix commands:
+
+alias map='xargs -L 1 -I "item"'
+alias zcp="zmv -C"
+
+# Rails related:
+
+export railsref='$code/reference/rails'
+export ref='$code/reference'
+
+## Rake
+
+alias brT='bin/rake -T'
+
+## RSpec
+alias failing-spec-files="jq '.examples | map(select(.status==\"failed\")) | map(.file_path) | .[]' -r =(rspec -f json) | uniq"
+
+## Foreman
+
+# alias fs='foreman start'
+# function fs()
+# {
+#   if [ -e "./Procfile.dev" ]
+#   then
+#     echo "Using Procfile.dev"
+#     foreman start -f Procfile.dev
+#   else
+#     foreman start
+#   fi
+# }
+
+# Other dev related:
+
+## Docker
+each_docker(){
+  # get docker processes, cut for container ids, remove header, map command over each
+  docker ps | cut -d' ' -f1 | tail -n +2 | xargs -L 1 docker $@
+}
+alias new_docker='docker images -q | head -n 1'
+alias nd='new_docker'
+
+## AWS CLI
+
+amzn(){
+  resp=`aws $@`
+  echo $resp | jq '.' 2> /dev/null
+  if [[ $? -ne "0" ]]; then
+    echo $resp
+  fi
+}
+alias aw='amzn'
+
+ec2(){
+  amzn ec2 $@
+}
+
+ecs(){
+  amzn ecs $@
+}
+
+elb(){
+  amzn elb $@
+}
+
+s3(){
+  amzn s3 $@
+}
+
+s3api(){
+  amzn s3api $@
+}
+
+# Git
+
+alias gitrev="git log HEAD~1..HEAD --pretty=format:'%h' | cat"
+
+# Ruby
+
+alias parser="ruby-parse -e"
+
+# Haskell
+
+alias haskell="clear;ghci"
+alias ghci="ghci -v0"

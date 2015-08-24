@@ -1,0 +1,2 @@
+# On March 17, 2015 I used this command to successfully install nokogiri:
+gem install --no-rdoc --no-ri nokogiri -- --with-xml2-include=/opt/local/include/libxml2 --with-xml2-lib=/opt/local/lib
