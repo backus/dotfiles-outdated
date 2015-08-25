@@ -3,7 +3,7 @@ autoload -U zmv
 # ENV variables
 alias ae2='subl2 ~/.aliases'
 alias ar2='source ~/.aliases'
-alias code="cd $code/; clear;"
+alias code="cd $coding/; clear;"
 alias dls='cd ~/Downloads;clear'
 alias desktop='cd ~/Desktop;show;clear'
 alias la='ls -laG';
@@ -27,8 +27,8 @@ alias zcp="zmv -C"
 
 # Rails related:
 
-export railsref='$code/reference/rails'
-export ref='$code/reference'
+export railsref="$coding/reference/rails"
+export ref="$coding/reference"
 
 ## Rake
 

@@ -93,6 +93,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source ~/.secrets
 source ~/.aliases
 export PATH="$HOME/.bin:$PATH"
 
