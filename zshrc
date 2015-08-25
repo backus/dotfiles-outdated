@@ -95,6 +95,7 @@ fi
 
 source ~/.secrets
 source ~/.aliases
+source ~/.git-prompt.sh
 export PATH="$HOME/.bin:$PATH"
 
 # Customize to your needs...

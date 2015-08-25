@@ -73,7 +73,6 @@ s3api(){
 
 # Git
 
-source ~/.git-prompt.sh
 alias gitrev="git log HEAD~1..HEAD --pretty=format:'%h' | cat"
 alias st="git status ."
 
