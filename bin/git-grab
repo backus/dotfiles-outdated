@@ -1,0 +1,13 @@
+#!/bin/bash
+
+[ $# -eq 0 ] && {
+  echo "Clones a repository to $CODE/name@owner"
+	echo "usage: git-grab <repo>"
+	exit 1
+}
+
+
+IFS=' ' read owner name <<< "$(git-nwo $1)"
+
+dest="$CODE/$name@$owner"
+git clone https://github.com/$owner/$name $dest;
