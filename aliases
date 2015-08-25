@@ -1,60 +1,38 @@
 autoload -U zmv
 
-# ENV variables
+# Unix commands:
+
 alias ae2='subl2 ~/.aliases'
 alias ar2='source ~/.aliases'
-alias code="cd $coding/; clear;"
-alias dls='cd ~/Downloads;clear'
-alias desktop='cd ~/Desktop;show;clear'
+alias map='xargs -L 1 -I "item"'
+alias zcp="zmv -C"
+alias path='echo $PATH | tr : "\n"'
 alias la='ls -laG';
 alias l='ls -l1G';
 alias lr='ls -t1';
 alias mmv='noglob zmv -W'
 
-source ~/.git-prompt.sh
+## directory navigation
 
-alias st="git status ."
+alias dls='cd ~/Downloads;clear'
+alias desktop='cd ~/Desktop;show;clear'
+alias code="cd $coding/; clear;"
 alias ..="cd .."
 alias ...="cd ../.."
-alias be="bundle exec"
-
-# This should eventually be organized... for now I'm just going to organize from now on:
-
-# Unix commands:
-
-alias map='xargs -L 1 -I "item"'
-alias zcp="zmv -C"
-alias path='echo $PATH | tr : "\n"'
 
 # Rails related:
 
 export railsref="$coding/reference/rails"
 export ref="$coding/reference"
 
-## Rake
+# Rake
 
 alias brT='bin/rake -T'
 
-## RSpec
+# RSpec
 alias failing-spec-files="jq '.examples | map(select(.status==\"failed\")) | map(.file_path) | .[]' -r =(rspec -f json) | uniq"
 
-## Foreman
-
-# alias fs='foreman start'
-# function fs()
-# {
-#   if [ -e "./Procfile.dev" ]
-#   then
-#     echo "Using Procfile.dev"
-#     foreman start -f Procfile.dev
-#   else
-#     foreman start
-#   fi
-# }
-
-# Other dev related:
-
-## Docker
+# Docker
 each_docker(){
   # get docker processes, cut for container ids, remove header, map command over each
   docker ps | cut -d' ' -f1 | tail -n +2 | xargs -L 1 docker $@
@@ -62,7 +40,7 @@ each_docker(){
 alias new_docker='docker images -q | head -n 1'
 alias nd='new_docker'
 
-## AWS CLI
+# AWS CLI
 
 amzn(){
   resp=`aws $@`
@@ -95,11 +73,14 @@ s3api(){
 
 # Git
 
+source ~/.git-prompt.sh
 alias gitrev="git log HEAD~1..HEAD --pretty=format:'%h' | cat"
+alias st="git status ."
 
 # Ruby
 
 alias parser="ruby-parse -e"
+alias be="bundle exec"
 
 # Haskell
 
