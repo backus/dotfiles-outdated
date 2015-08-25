@@ -28,18 +28,5 @@ export PATH="$HOME/.bin:$PATH"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
 eval "$(phpenv init -)"
-# Setup zsh-autosuggestions
-# source /Users/johnbackus/.zsh-autosuggestions/autosuggestions.zsh
-
-# Enable autosuggestions automatically
-# zle-line-init() {
-#     zle autosuggest-start
-# }
-
-# zle -N zle-line-init
-
-# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
-# zsh-autosuggestions is designed to be unobtrusive)
-# bindkey '^T' autosuggest-toggle
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
