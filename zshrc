@@ -103,6 +103,7 @@ for config_file ($HOME/.yadr/zsh/*.zsh) source $config_file
 
 export PATH="$PATH:$HOME/.phpenv/bin" # Add RVM to PATH for scripting
 export PATH=/usr/local/php5/bin:$PATH
+export PATH="$HOME/.bin:$PATH"
 
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 

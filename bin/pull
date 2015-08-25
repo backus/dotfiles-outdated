@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+require 'digest'
+
+def pipe_input?
+  not $stdin.tty?
+end
+
+def arg_digest
+  @arg_digests ||= {}
+  args_str = @args.is_a?(Array) ? @args.join('') : @args
+  @arg_digests[args_str] ||= Digest::SHA1.hexdigest args_str
+end
+
+def cache_path
+  "/tmp/pull-cache-#{arg_digest}"
+end
+
+def cache?
+  File.exists? cache_path
+end
+
+def cache
+  @cache ||= {}
+  @cache[arg_digest] ||= cache? ? File.read(cache_path) : nil
+end
+
+def write(response)
+  File.write(cache_path, response)
+end
+
+def pull
+  return cache unless cache.nil?
+  response = `#{@curl}`
+  write response
+  response
+end
+
+if pipe_input?
+  ARGF.each_line do |line|
+    @args = line
+    @curl = "curl \"#{@args}\""
+    $stdout.puts pull
+  end
+else
+  @args = ARGV.map { |arg| %("#{arg}") }
+  @curl = "curl #{@args.join ' '}"
+  puts pull
+end
