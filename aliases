@@ -24,6 +24,7 @@ alias be="bundle exec"
 
 alias map='xargs -L 1 -I "item"'
 alias zcp="zmv -C"
+alias path='echo $PATH | tr : "\n"'
 
 # Rails related:
 
