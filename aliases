@@ -82,6 +82,7 @@ alias amend!="git commit --amend --no-edit"
 
 alias parser="ruby-parse -e"
 alias be="bundle exec"
+alias bu="bundle update"
 
 # Haskell
 
