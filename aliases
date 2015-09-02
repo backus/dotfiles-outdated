@@ -75,6 +75,8 @@ s3api(){
 
 alias gitrev="git log HEAD~1..HEAD --pretty=format:'%h' | cat"
 alias st="git status ."
+alias amend="git commit --amend"
+alias amend!="git commit --amend --no-edit"
 
 # Ruby
 
