@@ -20,4 +20,3 @@ for config_file ($HOME/.yadr/zsh/*.zsh) source $config_file
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin"
