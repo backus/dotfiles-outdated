@@ -81,6 +81,11 @@ fixup(){ # interactive fixup. requires https://github.com/thoughtbot/pick
   rev=`git log --pretty=format:'%h %s' | pick | cut -d' ' -f1`
   git commit --fixup $rev
 }
+fixup!(){ # same as `fixup` but includes an interactive rebase
+  rev=`git log --pretty=format:'%h %s' | pick | cut -d' ' -f1`
+  git commit --fixup $rev
+  git rebase -i "$rev^" --autostash
+}
 
 # Ruby
 
