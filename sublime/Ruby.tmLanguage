@@ -1353,7 +1353,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>%[qwsi]\(</string>
+			<string>%[qws]\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1390,6 +1390,45 @@
 				</dict>
 			</array>
 		</dict>
+		<dict>
+      <key>begin</key>
+      <string>%[i]\(</string>
+      <key>beginCaptures</key>
+      <dict>
+        <key>0</key>
+        <dict>
+          <key>name</key>
+          <string>punctuation.definition.string.begin.ruby</string>
+        </dict>
+      </dict>
+      <key>comment</key>
+      <string>literal incapable of interpolation -- ()</string>
+      <key>end</key>
+      <string>\)</string>
+      <key>endCaptures</key>
+      <dict>
+        <key>0</key>
+        <dict>
+          <key>name</key>
+          <string>punctuation.definition.string.end.ruby</string>
+        </dict>
+      </dict>
+      <key>name</key>
+      <string>constant.other.symbol.ruby.19syntax</string>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>\\\)|\\\\</string>
+          <key>name</key>
+          <string>constant.character.escape.ruby</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#nest_parens</string>
+        </dict>
+      </array>
+    </dict>
 		<dict>
 			<key>begin</key>
 			<string>%[qws]\&lt;</string>
