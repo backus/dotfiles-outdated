@@ -94,6 +94,15 @@ fixup!(){ # same as `fixup` but includes an interactive rebase
   git commit --fixup $rev
   git rebase -i "$rev^" --autostash
 }
+irebase(){
+  if [[ $# -ne 1 ]]; then
+    echo "Usage: irebase NUMBER"
+    echo "Equivalent to: git rebase -i HEAD~NUMBER --autostash"
+    return 1;
+  fi
+
+  git rebase -i "HEAD~$1" --autostash
+}
 
 # Ruby
 
