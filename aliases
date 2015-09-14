@@ -73,13 +73,6 @@ s3api(){
 
 # Git
 
-export DEFAULT_COMMIT_MESSAGE="ACTION short description
-
-Long description
-
-# Valid actions: Add, Remove, Change, Move, Fix, Upgrade, Update, Refactor
-# Try to only commit changes that fit one of these actions"
-
 alias gitrev="git log HEAD~1..HEAD --pretty=format:'%h' | cat"
 alias st="git status ."
 alias commit="git commit -v -m \"$DEFAULT_COMMIT_MESSAGE\" --edit"
