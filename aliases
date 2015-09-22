@@ -103,6 +103,7 @@ alias open-conflicts="git diff --name-only | uniq | xargs -L1 $EDITOR"
 alias parser="ruby-parse -e"
 alias be="bundle exec"
 alias bu="bundle update"
+alias bul="bundle update --local"
 
 # Haskell
 
