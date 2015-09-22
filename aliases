@@ -96,6 +96,7 @@ irebase(){
 
   git rebase -i "HEAD~$1" --autostash
 }
+alias open-conflicts="git diff --name-only | uniq | xargs -L1 $EDITOR"
 
 # Ruby
 
