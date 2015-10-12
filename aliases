@@ -87,14 +87,15 @@ fixup!(){ # same as `fixup` but includes an interactive rebase
   git commit --fixup $rev
   git rebase -i "$rev^" --autostash
 }
+
 irebase(){
+  num_commits=$1;
+
   if [[ $# -ne 1 ]]; then
-    echo "Usage: irebase NUMBER"
-    echo "Equivalent to: git rebase -i HEAD~NUMBER --autostash"
-    return 1;
+    num_commits=`git log origin/master..HEAD | wc -l`
   fi
 
-  git rebase -i "HEAD~$1" --autostash
+  git rebase -i "HEAD~$num_commits" --autostash
 }
 alias open-conflicts="git diff --name-only | uniq | xargs -L1 $EDITOR"
 
