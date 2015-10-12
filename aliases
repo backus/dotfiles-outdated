@@ -108,6 +108,16 @@ pick-remote(){
   echo "${remote// /}"
 }
 
+rebase-pr(){
+  echo "Fetching remotes"
+  fetch-remotes
+
+  remote=$(pick-remote)
+
+  echo "Rebasing $remote"
+  git rebase --interactive --no-autosquash --autostash --preserve-merges $remote
+}
+
 alias open-conflicts="git diff --name-only | uniq | xargs -L1 $EDITOR"
 
 # Ruby
