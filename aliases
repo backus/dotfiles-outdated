@@ -102,6 +102,12 @@ fetch-remotes(){
   git remote | xargs --no-run-if-empty --max-args 1 -L1 git fetch
 }
 
+pick-remote(){
+  remote=$(git branch --remote | pick)
+
+  echo "${remote// /}"
+}
+
 alias open-conflicts="git diff --name-only | uniq | xargs -L1 $EDITOR"
 
 # Ruby
