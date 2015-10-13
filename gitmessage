@@ -1,6 +1,4 @@
 ACTION short description
 
-Long description
-
 # Valid actions: Add, Remove, Change, Move, Fix, Upgrade, Update, Refactor
 # Try to only commit changes that fit one of these actions
