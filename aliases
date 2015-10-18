@@ -126,6 +126,7 @@ alias parser="ruby-parse -e"
 alias be="bundle exec"
 alias bu="bundle update"
 alias bul="bundle update --local"
+alias bil="bundle install --local"
 
 # Haskell
 
