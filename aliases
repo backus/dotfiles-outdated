@@ -120,6 +120,8 @@ rebase-pr(){
 
 alias open-conflicts="git diff --name-only | uniq | xargs -L1 $EDITOR"
 
+alias wip-commit="git commit -m 'WIP'"
+
 # Ruby
 
 alias parser="ruby-parse -e"
