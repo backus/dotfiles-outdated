@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 
-export UPDATE_ZSH_DAYS=1
+export DISABLE_AUTO_UPDATE=true
 
 plugins=(git hub ruby osx sublime brew zeus gem jsontools)
 
