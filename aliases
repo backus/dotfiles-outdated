@@ -130,6 +130,9 @@ alias bu="bundle update"
 alias bul="bundle update --local"
 alias bil="bundle install --local"
 
+# Requires `rerun`: `gem install rerun` (https://github.com/alexch/rerun)
+alias reruby="rerun --clear --exit --background --no-growl ruby"
+
 # Haskell
 
 alias haskell="clear;ghci"
