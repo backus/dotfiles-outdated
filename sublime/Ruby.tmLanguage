@@ -2217,6 +2217,47 @@
 		</dict>
 		<dict>
 			<key>begin</key>
+			<string>(?&gt;&lt;&lt;~(\w+))</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.ruby</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>heredoc with stripped indentation</string>
+			<key>end</key>
+			<string>\s*\1$</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.ruby</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.unquoted.heredoc.ruby</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#heredoc</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_ruby</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped_char</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
 			<string>(?&lt;=\{|do|\{\s|do\s)(\|)</string>
 			<key>captures</key>
 			<dict>
