@@ -1,0 +1,36 @@
+#!/bin/bash
+#/ Usage: github-clone <repo> [directory]
+#/ Clone a github repo
+#/
+#/ Examples:
+#/   Simple clone
+#/     github-clone backus/dotfiles
+#/
+#/   Clone into a directory with a different name
+#/     github-clone backus/dotfiles dotfiles-clone
+
+print-usage () {
+  grep '^#/' <"$0" | cut -c4-
+}
+
+usage () {
+  exit_code=$1
+
+  print-usage
+
+  exit $exit_code
+}
+
+verify-arguments () {
+  if [ $# -eq 0 ] || [ $# -gt 2 ]; then
+    usage 1
+  elif [ "$1" = "--help" ]; then
+    usage 0
+  fi
+}
+
+verify-arguments $@
+
+ssh_url="git@github.com:$1.git"
+
+`git clone $ssh_url $2`
